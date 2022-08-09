@@ -1,0 +1,77 @@
+MySQL
+
+MySQL Workbench  -DBMS GUI 프로그램
+MySQL Command Line Client  -CLI 프로그램
+
+
+
+<데이터 베이스 관리 명령어>
+
+
+-현재 데이터베이스 확인하기
+show databases;
+
+
+-데이터 베이스 생성
+create database[또는 schema] 생성할DB명;
+또는
+create database[또는 schema] 생성할DB명 default character set utf8;
+(문자셋을 설정해줄 수 있음)
+
+
+-데이터 베이스 삭제
+drop database 삭제할DB명;
+
+
+-DDL 명령어로 사용자 추가하기
+create user 사용자id;				#사용자만 추가
+create user 사용자id@localhost identified by '비밀번호';	#비번을 함께 설정 추가
+create user 'userid'@'%' identified by 'password'; 	#외부('%')에서 접근을 허용. %는 모든 ip 허용.
+
+
+-SQL 명령어로 사용자 추가하기
+use mysql;
+
+insert into user(Host, User, Password)
+values('localhost', 'userid', password('password'));
+
+insert into user(Host, User, Password)
+values('%', 'userid', password('password'));
+
+
+-모든 권한 부여하기
+grant all privileges on *.* to userid@host;				#모든 DB의 모든 테이블
+grant all privileges on dbname.* to userid@host;			#DB의 모든 테이블
+grant all privileges on dbname.* to userid@host identified by 'password';	#비번변경
+grant all privileges on dbname.tablename to userid@'%' identified by 'password';
+grant select, insert, update on dbname.* to userid@host identified by 'password';
+flush privileges;	#권한 변경을 적용
+
+
+-권한 제거하기
+revoke all on dbname.tablename from userid;
+
+
+-계정 삭제하기
+drop user userid@'%';
+
+
+-데이터 베이스 사용하기
+use DB이름;
+
+
+-데이터 베이스 사용하기 이후 테이블 보기
+show tables;
+
+
+-대부분 쿼리는 다른 DB랑 같음
+select * from 컬럼;
+
+
+Data 타입과 몇가지를 제외하면 OracleSQL과 거진 비슷함 만져보면서 익히기
+현업에서 테이블 등은 쿼리로 만들 일이 별로 없고 모델링 환경에서 도구 등을 사용해서 만든다.
+
+
+-모델링 도구를 통해 만드는법
+MySQL Workbench -> Database 탭 -> Reverse Engineer ->
+테이블 만들고 데이터 타입, 관계도, 제약 등등 설정한 뒤 -> Database 탭 -> Forward Engineer

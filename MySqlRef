@@ -1,3 +1,6 @@
+
+
+
 MySQL
 
 MySQL Workbench  -DBMS GUI 프로그램
@@ -42,10 +45,10 @@ values('%', 'userid', password('password'));
 -모든 권한 부여하기
 grant all privileges on *.* to userid@host;				#모든 DB의 모든 테이블
 grant all privileges on dbname.* to userid@host;			#DB의 모든 테이블
-grant all privileges on dbname.* to userid@host identified by 'password';	#비번변경
+grant all privileges on dbname.* to userid@host identified by 'password';	    #비번변경
 grant all privileges on dbname.tablename to userid@'%' identified by 'password';
 grant select, insert, update on dbname.* to userid@host identified by 'password';
-flush privileges;	#권한 변경을 적용
+flush privileges;	      #권한 변경을 적용
 
 
 -권한 제거하기

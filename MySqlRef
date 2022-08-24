@@ -1,4 +1,4 @@
-
+---
 
 
 MySQL
@@ -78,3 +78,6 @@ Data 타입과 몇가지를 제외하면 OracleSQL과 거진 비슷함 만져보
 -모델링 도구를 통해 만드는법
 MySQL Workbench -> Database 탭 -> Reverse Engineer ->
 테이블 만들고 데이터 타입, 관계도, 제약 등등 설정한 뒤 -> Database 탭 -> Forward Engineer
+
+
+---

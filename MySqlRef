@@ -1,4 +1,4 @@
----
+-----
 
 
 MySQL
@@ -80,4 +80,4 @@ MySQL Workbench -> Database 탭 -> Reverse Engineer ->
 테이블 만들고 데이터 타입, 관계도, 제약 등등 설정한 뒤 -> Database 탭 -> Forward Engineer
 
 
----
+-----
